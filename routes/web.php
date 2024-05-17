@@ -7,29 +7,33 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+Route::get('/about', function () {
+    return view('studysmart.about');
+})->name('about');
+
+Route::get('/courses', function () {
+    return view('studysmart.courses');
+})->middleware(['auth', 'verified'])->name('courses');
+
 Route::get('/team', function () {
-    return view('Studysmart.team');
+    return view('studysmart.team');
 })->name('team');
 
 Route::get('/testimonial', function () {
-    return view('Studysmart.testimonial');
+    return view('studysmart.testimonial');
 })->name('testimonial');
 
-Route::get('/courses', function () {
-    return view('Studysmart.courses');
-})->middleware(['auth', 'verified'])->name('courses');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/about', function () {
-    return view('Studysmart.about');
-})->name('about');
-
 Route::get('/contact', function () {
-    return view('Studysmart.contact');
+    return view('studysmart.contact');
 })->name('contact');
+
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
