@@ -44,7 +44,6 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <!-- Ini mau ditambah margin kah biar tulisan sama logo jauhan dikit? -->
             <h2 class="m-0 text-primary"><i class="fa fa-solid fa-graduation-cap me-3"></i></i>Studysmart</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -52,7 +51,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ route ('home') }}" class="nav-item nav-link">Home</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link">Home</a>
                 <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
                 <a href="{{ route('courses') }}" class="nav-item nav-link">Courses</a>
                 <div class="nav-item dropdown">
@@ -65,7 +64,17 @@
                 </div>
                 <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+            @if(Auth::check())
+                <a href="{{ route('logout') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout<i class="fa fa-regular fa-user ms-2"></i>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+            @endif
         </div>
     </nav>
     <!-- Navbar End -->
