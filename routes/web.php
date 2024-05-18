@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LessonController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -43,9 +44,18 @@ Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show');
+Route::get('/courses/{id}', [CourseController::class, 'show'])->name('Studysmart.lessons');
 
-Route::get('/lessons/{id}/{module_id}', [EventsController::class, 'show'])->name('lessons.show');
+// Route::get('/lessons/{id}/{module_id}', [EventsController::class, 'show'])->name('lessons.show');
+
+// Route::get('/lessons/{course_id}', [LessonController::class, 'show'])->name('Studysmart.lessons');
+
+Route::get('/lessons/{course_id}', [LessonController::class, 'showQuestion'])->name('lessons.show');
+
+Route::get('/lessons/{course_id}/next', [LessonController::class, 'nextQuestion'])->name('lessons.next');
+
+Route::post('/lessons/{course_id}/submit', [LessonController::class, 'submitAnswer'])->name('lessons.submit');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
