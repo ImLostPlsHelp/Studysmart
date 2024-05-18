@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\CourseController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -15,6 +16,8 @@ Route::get('/about', function () {
 Route::get('/courses', function () {
     return view('studysmart.courses');
 })->middleware(['auth', 'verified'])->name('courses');
+
+Route::get('/courses', [CourseController::class, 'index'])->middleware(['auth', 'verified'])->name('courses');
 
 Route::get('/team', function () {
     return view('studysmart.team');
@@ -40,7 +43,9 @@ Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/lesson/{id}/{module_id}', [EventsController::class, 'show']);
+Route::get('/courses/{id}', [CourseController::class, 'show'])->name('courses.show');
+
+Route::get('/lessons/{id}/{module_id}', [EventsController::class, 'show'])->name('lessons.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
