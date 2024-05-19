@@ -57,8 +57,10 @@
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $lesson->answers }}
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="#" data-lesson-id="{{ $lesson->id }}"
-                                                class="text-indigo-600 hover:text-indigo-900 edit-lesson">{{ __('Edit') }}</a>
+                                            <button type="button" data-lesson-id="{{ $lesson->id }}"
+                                                data-lesson-questions="{{ $lesson->questions }}"
+                                                data-lesson-answers="{{ $lesson->answers }}"
+                                                class="text-indigo-600 hover:text-indigo-900 edit-lesson">{{ __('Edit') }}</button>
                                             <form
                                                 action="{{ route('courses.lessons.destroy', ['course' => $course->id, 'lesson' => $lesson->id]) }}"
                                                 method="POST" class="inline">
@@ -83,7 +85,9 @@
                                     aria-hidden="true">&#8203;</span>
                                 <div
                                     class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                                    <form id="lesson-form">
+                                    <form id="lesson-form" method="POST">
+                                        @csrf
+                                        @method('PUT')
                                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                                             <div class="sm:flex sm:items-start">
                                                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
@@ -92,7 +96,7 @@
                                                         Add/Edit Lesson
                                                     </h3>
                                                     <div class="mt-2">
-                                                        <input type="hidden" id="lesson-id">
+                                                        <input type="hidden" id="lesson-id" name="lesson-id">
                                                         <div>
                                                             <label for="questions"
                                                                 class="block text-sm font-medium text-gray-700">Questions</label>
@@ -128,6 +132,38 @@
             </div>
         </div>
     </x-app-layout>
+
+    <!-- Tambahkan JavaScript untuk menangani event edit dan modal -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const editButtons = document.querySelectorAll('.edit-lesson');
+            const modal = document.getElementById('lesson-modal');
+            const cancelBtn = document.getElementById('cancel-btn');
+            const form = document.getElementById('lesson-form');
+            const lessonIdInput = document.getElementById('lesson-id');
+            const questionsInput = document.getElementById('questions');
+            const answersInput = document.getElementById('answers');
+
+            editButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const lessonId = this.getAttribute('data-lesson-id');
+                    const lessonQuestions = this.getAttribute('data-lesson-questions');
+                    const lessonAnswers = this.getAttribute('data-lesson-answers');
+
+                    lessonIdInput.value = lessonId;
+                    questionsInput.value = lessonQuestions;
+                    answersInput.value = lessonAnswers;
+
+                    form.action = `/courses/${{{ $course->id }}}/lessons/${lessonId}`;
+                    modal.classList.remove('hidden');
+                });
+            });
+
+            cancelBtn.addEventListener('click', function () {
+                modal.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>
