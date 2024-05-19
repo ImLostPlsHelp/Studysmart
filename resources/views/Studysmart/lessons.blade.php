@@ -1,34 +1,48 @@
-<!-- resources/views/lesson.blade.php -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Studysmart - lessons</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <style>
+        .exercise-container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
 
-    <!-- Libraries Stylesheet -->
-    <link href="assets/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        .exercise-header {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+        .code-box {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
 
-    <!-- Template Stylesheet -->
-    <link href="assets/css/style.css" rel="stylesheet">
+        .btn-submit {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #218838;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,10 +54,10 @@
             </div>
             <div class="row g-4">
                 <div class="col-lg-8 col-md-10 mx-auto wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="question-item bg-light p-4">
-                        <h5 class="mb-4">{{ $currentLesson->title }}</h5>
+                    <div class="exercise-container">
+                        <div class="exercise-header">Exercise:</div>
                         <p>{{ $currentLesson->questions }}</p>
-
+                
                         <form action="{{ route('lessons.submit', $course->id) }}" method="POST">
                             @csrf
                             <input type="text" name="answer" class="form-control mb-3" placeholder="Your Answer">
@@ -54,22 +68,10 @@
                             @csrf
                             <button type="submit" class="btn btn-secondary">Next</button>
                         </form>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- JavaScript Libraries -->
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/lib/wow/wow.min.js"></script>
-    <script src="assets/lib/easing/easing.min.js"></script>
-    <script src="assets/lib/waypoints/waypoints.min.js"></script>
-    <script src="assets/lib/owlcarousel/owl.carousel.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

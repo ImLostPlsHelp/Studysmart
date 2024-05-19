@@ -86,6 +86,45 @@ class LessonController extends Controller
             return view('Studysmart.lessons-result', compact('course', 'currentLesson', 'isCorrect'));
         }
     }
+    public function index(Course $course)
+    {
+        $lessons = $course->lessons;
+        return view('Studysmart.admin.courses.show', compact('course', 'lessons'));
+    }
+
+    // Show the form for creating a new resource.
+    public function create(Course $course)
+    {
+        return view('Studysmart.admin.lessons.create', compact('course'));
+    }
+
+    // Store a newly created resource in storage.
+    public function store(Request $request, $courseId)
+    {
+        $data = $request->all();
+        $data['course_id'] = $courseId;
+        $lesson = Lesson::create($data);
+        return redirect()->route('courses.lessons.index', $courseId)
+            ->with('success', 'Lesson created successfully.');
+    }
+
+    public function show($courseId, $lessonId)
+    {
+        $lesson = Lesson::findOrFail($lessonId);
+        return response()->json($lesson);
+    }
+
+    public function update(Request $request, $courseId, $lessonId)
+    {
+        $lesson = Lesson::findOrFail($lessonId);
+        $lesson->update($request->all());
+        return response()->json($lesson);
+    }
+
+    public function destroy($courseId, $lessonId)
+    {
+        $lesson = Lesson::findOrFail($lessonId);
+        $lesson->delete();
+        return redirect()->route('admin.courses.show', $courseId);
+    }
 }
-
-

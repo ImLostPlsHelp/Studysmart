@@ -17,12 +17,12 @@ class CourseController extends Controller
     public function indexAdmin()
     {
         $courses = Course::all();
-        return view('admin.courses.index', compact('courses'));
+        return view('Studysmart.admin.courses.index', compact('courses'));
     }
 
     public function show(Course $course)
     {
         $lessons = $course->lessons;
-        return view('admin.courses.show', compact('course', 'lessons'));
+        return view('Studysmart.admin.courses.show', compact('course', 'lessons'));
     }
 }

@@ -11,15 +11,14 @@ class Lesson extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'question',
-        'course_id'
-    ];
+    protected $fillable = ['questions', 'answers', 'course_id'];
 
+    // Jika ada relasi dengan Course
     public function course()
     {
         return $this->belongsTo(Course::class);
     }
+
+    public $timestamps = false;
 }
 

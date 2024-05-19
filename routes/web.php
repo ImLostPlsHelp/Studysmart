@@ -72,9 +72,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('/admin/courses', [CourseController::class, 'index'])->name('admin.courses.index');
+Route::get('/admin/courses', [CourseController::class, 'indexAdmin'])->name('admin.courses.index');
 
 Route::get('/admin/courses/{course}', [CourseController::class, 'show'])->name('admin.courses.show');
+
+Route::resource('courses.lessons', LessonController::class);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -83,5 +85,15 @@ Route::middleware('auth')->group(function () {
     // Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
     Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/courses/{course}/lessons/create', [LessonController::class, 'create'])->name('lessons.create');
+    Route::post('/courses/{course}/lessons', [LessonController::class, 'store'])->name('lessons.store');
+    Route::get('/courses/{course}/lessons/{lesson}/edit', [LessonController::class, 'edit'])->name('lessons.edit');
+    Route::put('/courses/{course}/lessons/{lesson}', [LessonController::class, 'update'])->name('lessons.update');
+    Route::delete('/courses/{course}/lessons/{lesson}', [LessonController::class, 'destroy'])->name('lessons.destroy');
+});
+
+Route::resource('courses.lessons', LessonController::class);
 
 require __DIR__.'/auth.php';
