@@ -119,7 +119,7 @@ class LessonController extends Controller
         $lesson = Lesson::findOrFail($lessonId);
         $lesson->update($request->all());
     
-        return redirect()->route('admin.courses.show', ['course' => $courseId])
+        return redirect()->route('admin.courses.index')
                          ->with('success', 'Lesson updated successfully.');
     }
     public function destroy($courseId, $lessonId)
