@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Admin;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -28,7 +29,13 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Check if the authenticated user is an admin
+        $user = Auth::user();
+        if (Admin::where('email', $user->email)->exists()) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return redirect()->intended(route('dashboard'));
     }
 
     /**
@@ -45,3 +52,4 @@ class AuthenticatedSessionController extends Controller
         return redirect('/');
     }
 }
+
