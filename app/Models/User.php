@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function completedCourses()
+    {
+        return $this->belongsToMany(Course::class, 'completed_courses');
+    }
 }
+

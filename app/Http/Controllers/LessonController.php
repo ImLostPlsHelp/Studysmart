@@ -7,6 +7,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Course;
+use App\Models\CompletedCourse;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class LessonController extends Controller
@@ -32,13 +34,21 @@ class LessonController extends Controller
     {
         $lessons = Lesson::where('course_id', $course_id)->get();
         $index = Session::get('question_index');
-        
+
         // Cek apakah semua soal sudah dijawab dengan benar
         $correctlyAnswered = Session::get('correctly_answered', []);
         $allCorrect = count($correctlyAnswered) === count($lessons) && !in_array(false, $correctlyAnswered, true);
         $course = Course::findOrFail($course_id);
 
         if ($allCorrect) {
+            // Simpan data kursus yang telah selesai
+            $user = Auth::user();
+            CompletedCourse::create([
+                'user_id' => $user->id,
+                'course_id' => $course->id,
+                'nama_course' => $course->name,
+            ]);
+
             // Reset session jika semua soal sudah benar
             Session::forget('question_index');
             Session::forget('correctly_answered');
@@ -77,4 +87,5 @@ class LessonController extends Controller
         }
     }
 }
+
 

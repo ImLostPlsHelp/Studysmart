@@ -56,11 +56,16 @@ Route::get('/lessons/{course_id}/next', [LessonController::class, 'nextQuestion'
 
 Route::post('/lessons/{course_id}/submit', [LessonController::class, 'submitAnswer'])->name('lessons.submit');
 
+// Route::get('/profile-page', function () {
+//     return view('profile.edit');
+// })->middleware(['auth', 'verified'])->name('profile');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::post('/profile', [ProfileController::class, 'store'])->name('profile.store');
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 });
 
 require __DIR__.'/auth.php';

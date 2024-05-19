@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\CompletedCourse;
+use App\Models\Profile;
 
 class ProfileController extends Controller
 {
@@ -57,4 +59,12 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    public function show(): View
+    {
+        $user = Auth::user();
+        $completedCourses = CompletedCourse::where('user_id', $user->id)->get();
+
+        return view('profile.edit', compact('user', 'completedCourses'));
+    }
+
 }

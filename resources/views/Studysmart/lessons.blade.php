@@ -41,7 +41,7 @@
             <div class="row g-4">
                 <div class="col-lg-8 col-md-10 mx-auto wow fadeInUp" data-wow-delay="0.1s">
                     <div class="question-item bg-light p-4">
-                        <h5 class="mb-4">{{ $currentLesson->title }}</h5>
+                        <!-- <h5 class="mb-4">{{ $currentLesson->title }}</h5> -->
                         <p>{{ $currentLesson->questions }}</p>
 
                         <form action="{{ route('lessons.submit', $course->id) }}" method="POST">

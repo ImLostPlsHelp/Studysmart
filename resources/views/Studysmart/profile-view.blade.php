@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Studysmart - Studysmart HTML Template</title>
+    <title>Studysmart - about</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -55,10 +55,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('home') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
+                <a href="{{ route('about') }}" class="nav-item nav-link active">About</a>
                 <a href="{{ route('courses') }}" class="nav-item nav-link">Courses</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu fade-down m-0">
                         <a href="{{ route('team') }}" class="dropdown-item">Our Team</a>
                         <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
@@ -68,8 +68,13 @@
                 <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
             </div>
             @if(Auth::check())
-                <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profile<i
-                        class="fa fa-regular fa-user ms-2"></i></a>
+                <a href="{{ route('logout') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"
+                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Logout<i class="fa fa-regular fa-user ms-2"></i>
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             @else
                 <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
                         class="fa fa-arrow-right ms-3"></i></a>
@@ -79,76 +84,130 @@
     <!-- Navbar End -->
 
 
-    <!-- Header Start -->
-    <div class="container-fluid bg-primary py-5 mb-5 page-header">
-        <div class="container py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Testimonial</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Testimonial</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
-
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- Contact Start -->
+    <div class="container-xxl py-5">
         <div class="container">
-            <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
-            </div>
-            <div class="owl-carousel testimonial-carousel position-relative">
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-1.jpg"
-                        style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Joko Sutego</h5>
-                    <p>Software Engineer, Google</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Studysmart memulai jalan saya sebagai programmer dan software engineer.</p>
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Profile</h6>
+                <h1 class="mb-5">Hello, Your Name</h1>
+
+
+                <!-- profile picture -->
+                <div class="col-lg-29 col-md-30 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="profile-pic">
+                        <label class="-label" for="file">
+                            <span class="glyphicon glyphicon-camera"></span>
+                            <span>Change Image</span>
+                        </label>
+                        <input id="file" type="file" onchange="loadFile(event)" />
+                        <img src="https://t4.ftcdn.net/jpg/05/89/93/27/360_F_589932782_vQAEAZhHnq1QCGu5ikwrYaQD0Mmurm0N.jpg"
+                            id="output" width="200" />
+                        <script>
+                            var loadFile = function (event) {
+                                var file = event.target.files[0];
+                                var image = document.getElementById("output");
+                                var fileType = file.type;
+                                if (fileType === "image/jpeg" || fileType === "image/png") {
+                                    image.src = URL.createObjectURL(file);
+                                } else {
+                                    alert("Only JPG and PNG files are allowed.");
+                                    event.target.value = "";
+                                }
+                            };
+
+                        </script>
+                        <style>
+                            .profile-pic {
+                                color: transparent;
+                                transition: all 0.3s ease;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                position: relative;
+                                transition: all 0.3s ease;
+                            }
+
+                            .profile-pic input {
+                                display: none;
+                            }
+
+                            .profile-pic img {
+                                position: absolute;
+                                object-fit: cover;
+                                width: 165px;
+                                height: 165px;
+                                box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+                                border-radius: 100px;
+                                z-index: 0;
+                            }
+
+                            .profile-pic .-label {
+                                cursor: pointer;
+                                height: 165px;
+                                width: 165px;
+                            }
+
+                            .profile-pic:hover .-label {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background-color: rgba(0, 0, 0, 0.8);
+                                z-index: 10000;
+                                color: rgb(250, 250, 250);
+                                transition: background-color 0.2s ease-in-out;
+                                border-radius: 100px;
+                                margin-bottom: 0;
+                            }
+
+                            .profile-pic span {
+                                display: inline-flex;
+                                padding: 0.2em;
+                                height: 2em;
+                            }
+                        </style>
                     </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-2.jpg"
-                        style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Johnny Turego</h5>
-                    <p>Fullstack Developer, Amazon</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Menggunakan Studysmart, saya dapat mempelajari banyak hal dan mendapatkan
-                            pekerjaan di Amazon.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-3.jpg"
-                        style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Tulung Simanjuntak</h5>
-                    <p>Front-end Specialist, Youtube</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Course design dan website development Studysmart sangat berguna.</p>
-                    </div>
-                </div>
-                <div class="testimonial-item text-center">
-                    <img class="border rounded-circle p-2 mx-auto mb-3" src="assets/img/testimonial-4.jpg"
-                        style="width: 80px; height: 80px;">
-                    <h5 class="mb-0">Aaron Aaron</h5>
-                    <p>Back-end Developer, Facebook</p>
-                    <div class="testimonial-text bg-light text-center p-4">
-                        <p class="mb-0">Algoritma dulu sulit, tetapi setelah diajarkan oleh Pak Ridhok sekarang menjadi
-                            mudah.</p>
+                    <!-- profile picture end -->
+
+
+
+                    <div class="col-lg-20 col-md-30 wow fadeInUp" data-wow-delay="0.5s">
+                        <form action="{{ route('profile.store') }}" method="POST">
+                            @csrf
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="name" name="name"
+                                            placeholder="Your Name" required>
+                                        <label for="name">Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="school" name="school"
+                                            placeholder="Your School" required>
+                                        <label for="school">School</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="About Me" id="about_me"
+                                            name="about_me" style="height: 150px"></textarea>
+                                        <label for="about_me">About Me</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Save <i
+                                            class="fa fa-regular fa-save"></i></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
+    <!-- Contact End -->
+
 
 
     <!-- Footer Start -->
