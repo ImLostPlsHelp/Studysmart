@@ -13,4 +13,8 @@ class Course extends Model
     {
         return $this->belongsToMany(Profile::class, 'completed_courses');
     }
+    public function lessons()
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }

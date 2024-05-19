@@ -14,4 +14,15 @@ class CourseController extends Controller
         $courses = Course::all();
         return view('Studysmart.courses', compact('courses'));
     }
+    public function indexAdmin()
+    {
+        $courses = Course::all();
+        return view('admin.courses.index', compact('courses'));
+    }
+
+    public function show(Course $course)
+    {
+        $lessons = $course->lessons;
+        return view('admin.courses.show', compact('course', 'lessons'));
+    }
 }
