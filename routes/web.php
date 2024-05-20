@@ -70,6 +70,12 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/courses/create', [CourseController::class, 'create'])->name('admin.courses.create');
+    Route::post('/admin/courses', [CourseController::class, 'store'])->name('admin.courses.store');
+    Route::get('/admin/courses/{course}/edit', [CourseController::class, 'edit'])->name('admin.courses.edit');
+    Route::put('/admin/courses/{course}', [CourseController::class, 'update'])->name('admin.courses.update');
+    Route::delete('/admin/courses/{course}', [CourseController::class, 'destroy'])->name('admin.courses.destroy');
+    Route::get('/admin/courses/{course}', [CourseController::class, 'show'])->name('admin.courses.show');
 });
 
 Route::get('/admin/courses', [CourseController::class, 'indexAdmin'])->name('admin.courses.index');
@@ -93,6 +99,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/courses/{course}/lessons/{lesson}', [LessonController::class, 'update'])->name('lessons.update');
     Route::delete('/courses/{course}/lessons/{lesson}', [LessonController::class, 'destroy'])->name('lessons.destroy');
 });
+
 
 Route::resource('courses.lessons', LessonController::class);
 

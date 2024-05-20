@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
-
+    protected $fillable = ['name', 'description'];
+    public $timestamps = false;
     public function users()
     {
         return $this->belongsToMany(Profile::class, 'completed_courses');
