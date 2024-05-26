@@ -26,6 +26,13 @@ class CourseController extends Controller
         return view('Studysmart.admin.courses.show', compact('course', 'lessons'));
     }
 
+    public function show_details($id)
+    {
+        $course = Course::findOrFail($id);
+        return view('Studysmart.course-view', compact('course'));
+    }
+
+
     public function create()
     {
         return view('Studysmart.admin.courses.create');

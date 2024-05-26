@@ -47,6 +47,7 @@ Route::get('/dashboard', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/courses/{id}', [CourseController::class, 'show'])->name('Studysmart.lessons');
+Route::get('/courses-view/{id}', [CourseController::class, 'show_details'])->name('courses.view');
 
 // Route::get('/lessons/{id}/{module_id}', [EventsController::class, 'show'])->name('lessons.show');
 

@@ -169,8 +169,9 @@
                             <div class="position-relative overflow-hidden">
                                 <img class="img-fluid" src="assets/img/course-1.jpg" alt="">
                                 <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
-                                    <a href="{{ route('lessons.show', $course->id) }}" class="flex-shrink-0 btn btn-sm btn-primary px-3"
-                                        style="border-radius: 30px;">Join Now</a>
+                                    <a href="{{ route('courses.view', $course->id) }}"
+                                        class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 30px;">Join
+                                        Now</a>
                                 </div>
                             </div>
                             <div class="text-center p-4 pb-0">
