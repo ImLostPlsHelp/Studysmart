@@ -32,7 +32,6 @@ class CourseController extends Controller
         return view('Studysmart.course-view', compact('course'));
     }
 
-
     public function create()
     {
         return view('Studysmart.admin.courses.create');
@@ -41,11 +40,17 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'course_id' => 'required|integer|unique:courses,id',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
         ]);
 
-        Course::create($request->all());
+        // Menyertakan ID dalam pembuatan kursus baru
+        Course::create([
+            'id' => $request->input('course_id'),
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+        ]);
 
         return redirect()->route('admin.courses.index')->with('success', 'Course created successfully.');
     }
@@ -58,11 +63,17 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         $request->validate([
+            'course_id' => 'required|integer|unique:courses,id,' . $course->id,
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:1000',
         ]);
 
-        $course->update($request->only(['name', 'description']));
+        // Menyertakan ID dalam pembaruan kursus
+        $course->update([
+            'id' => $request->input('course_id'),
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+        ]);
 
         return redirect()->route('admin.courses.index')->with('success', 'Course updated successfully.');
     }
@@ -78,3 +89,4 @@ class CourseController extends Controller
         return redirect()->route('admin.courses.index')->with('success', 'Course deleted successfully.');
     }
 }
+
