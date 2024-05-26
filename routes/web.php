@@ -7,6 +7,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CertificateController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -101,6 +102,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/courses/{course}/lessons/{lesson}', [LessonController::class, 'destroy'])->name('lessons.destroy');
 });
 
+Route::get('/certificate/{course}', [CertificateController::class, 'show'])->name('certificate.show');
 
 Route::resource('courses.lessons', LessonController::class);
 
