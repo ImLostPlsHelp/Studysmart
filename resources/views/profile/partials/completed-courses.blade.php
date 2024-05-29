@@ -1,10 +1,12 @@
 <!-- resources/views/profile/partials/completed-courses.blade.php -->
 <div class="completed-courses">
-    <h3>Completed Courses</h3>
+<h2 class="text-lg font-medium text-gray-900">
+            {{ __('Completed Course') }}
+        </h2>
     <ul class="course-list">
         @foreach($completedCourses as $course)
             <li class="course-item">
-                <span>{{ $course->nama_course }}</span>
+                <span style="text-transform: uppercase;">{{ $course->nama_course }}</span>
                 <span class="course-date">{{ $course->created_at->format('H:i:s d-m-Y') }}</span>
             </li>
         @endforeach
@@ -22,7 +24,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
+        padding: 10px 0px 5px 0px;
         border-bottom: 1px solid #ccc;
     }
 
