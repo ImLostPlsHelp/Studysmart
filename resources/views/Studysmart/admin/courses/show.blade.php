@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,33 +9,47 @@
         .table-container {
             overflow-x: auto;
         }
+
         table {
             width: 100%;
             table-layout: fixed;
         }
-        th, td {
+
+        th,
+        td {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        th:nth-child(2), td:nth-child(2) {
-            width: 40%; /* Adjust as needed */
+
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 40%;
+            /* Adjust as needed */
         }
-        th:nth-child(3), td:nth-child(3) {
-            width: 30%; /* Adjust as needed */
+
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 30%;
+            /* Adjust as needed */
         }
-        th:nth-child(4), td:nth-child(4) {
-            width: 20%; /* Adjust as needed */
+
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 20%;
+            /* Adjust as needed */
         }
     </style>
 </head>
+
 <body>
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Lessons for ') . $course->name }}
             </h2>
-            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500 ml-2">Back to Courses</a>
+            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500 ml-2">Back to
+                Courses</a>
         </x-slot>
 
         <div class="py-12">
@@ -71,7 +86,8 @@
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {{ $lesson->questions }}
                                             </td>
-                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $lesson->answers }}
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{ $lesson->answers }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                                 <button type="button" data-lesson-id="{{ $lesson->id }}"
@@ -177,7 +193,33 @@
             cancelBtn.addEventListener('click', function () {
                 modal.classList.add('hidden');
             });
+
+            // Handle form submission with redirection
+            const lessonForm = document.getElementById('lesson-form');
+            lessonForm.addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(lessonForm);
+                const lessonId = formData.get('lesson-id');
+                const url = `/courses/{{ $course->id }}/lessons/${lessonId}`;
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        'Accept': 'application/json',
+                    },
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    window.location.href = `/admin/courses/{{ $course->id }}`;
+                } else {
+                    alert('An error occurred while saving the lesson.');
+                }
+            });
         });
     </script>
 </body>
+
 </html>
