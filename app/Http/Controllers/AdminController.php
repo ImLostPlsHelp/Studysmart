@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Course;
 
 class AdminController extends Controller
 {
@@ -17,6 +18,7 @@ class AdminController extends Controller
             abort(403, 'Unauthorized action.');
         }
 
-        return view('Studysmart.admin.dashboard');
+        $courses = Course::all();
+        return view('Studysmart.admin.courses.index', compact('courses'));
     }
 }
