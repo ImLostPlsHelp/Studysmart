@@ -61,7 +61,7 @@
                             </form>
                         @else
                             <h5 class="mb-4 text-danger">Wrong! Please try again.</h5>
-                            <form action="{{ route('lessons.show', $course->id) }}" method="GET" class="mt-3">
+                            <form action="{{ route('lessons.show', $course->id) }}" method="GET" class="mt-3 pb-3">
                                 <button type="submit" class="btn btn-primary">Retry</button>
                             </form>
                         @endif
