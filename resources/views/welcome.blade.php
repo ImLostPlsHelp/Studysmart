@@ -54,23 +54,22 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ route('courses') }}" class="nav-item nav-link">Courses</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link active">Beranda</a>
+                <a href="{{ route('about') }}" class="nav-item nav-link">Tentang Kami</a>
+                <a href="{{ route('courses') }}" class="nav-item nav-link">Kursus</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Halaman</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="{{ route('team') }}" class="dropdown-item">Our Team</a>
-                        <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                        <a href="{{ route('team') }}" class="dropdown-item">Tim Kami</a>
+                        <a href="{{ route('testimonial') }}" class="dropdown-item">Testimoni</a>
                     </div>
                 </div>
-                <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
+                <a href="{{ route('contact') }}" class="nav-item nav-link">Kontak</a>
                 @if(Auth::check())
-                    <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profile<i
+                    <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profil<i
                             class="fa fa-regular fa-user ms-2"></i></a>
                 @else
-                    <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
+                    <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Gabung Sekarang<i
                             class="fa fa-arrow-right ms-3"></i></a>
                 @endif
             </div>
@@ -97,9 +96,9 @@
                                 <p class="fs-5 text-white mb-4 pb-2">Studysmart menyediakan materi serta dokumentasi
                                     terhadap banyak bidang dan bahasa programming yang mudah diakses dan dimengerti.</p>
                                 <a href="{{ route('about') }}"
-                                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Baca Selengkapnya</a>
                                 <a href="{{ route('login') }}"
-                                    class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                    class="btn btn-light py-md-3 px-md-5 animated slideInRight">Gabung Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -112,17 +111,17 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Kursus Online Terbaik
                                 </h5>
-                                <h1 class="display-3 text-white animated slideInDown">Get Educated Online From Your Home
+                                <h1 class="display-3 text-white animated slideInDown">Dapatkan Pendidikan Online dari Rumah Anda
                                 </h1>
                                 <p class="fs-5 text-white mb-4 pb-2">Studysmart menyediakan kelas daring dan materi yang
                                     dapat diakses dimana saja dan kapan saja. Mulailah belajar dari kenyamanan rumah
                                     anda</p>
                                 <a href="{{ route('about') }}"
-                                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                                    class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Baca Selengkapnya</a>
                                 <a href="{{ route('login') }}"
-                                    class="btn btn-light py-md-3 px-md-5 animated slideInRight">Join Now</a>
+                                    class="btn btn-light py-md-3 px-md-5 animated slideInRight">Gabung Sekarang</a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +158,7 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-home text-primary mb-4"></i>
-                            <h5 class="mb-3">Home Projects</h5>
+                            <h5 class="mb-3">Proyek Rumah</h5>
                             <p>Berlatih lebih dalam melalui tugas dan proyek pada akhir pembelajaran</p>
                         </div>
                     </div>
@@ -168,7 +167,7 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
-                            <h5 class="mb-3">Book Library</h5>
+                            <h5 class="mb-3">Dokumentasi Lengkap</h5>
                             <p>Dokumentasi dan tutorial dengan jangkuan yang luas, mulai dari Java, Python, sampai
                                 bahasa C</p>
                         </div>
@@ -191,15 +190,15 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
-                    <h1 class="mb-4">Welcome to Studysmart</h1>
+                    <h6 class="section-title bg-white text-start text-primary pe-3">Tentang Kami</h6>
+                    <h1 class="mb-4">Selamat Datang di Studysmart</h1>
                     <p class="mb-4">“Pendidikan adalah senjata paling ampuh yang dapat Anda gunakan untuk mengubah
                         dunia” - Nelson Mandela.</p>
                     <p class="mb-4" style="text-align: justify;">Halo students! Perkenalkan, kami adalah sekumpulan programmer yang merasa media
                         pembelajaran programming yang menggunakan Bahasa Indonesia kurang, oleh karena itu kami membuat
                         Studysmart. Semoga dengan Studysmart, calon-calon programmer dapat terbantu dalam perjalanan
                         mereka serta menghindarkan mereka dari error-error yang merajalela. Good luck students!</p>
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="{{ route('about') }}">Read More</a>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="{{ route('about') }}">Baca Selengkapnya</a>
                 </div>
             </div>
         </div>
@@ -211,8 +210,8 @@
     <div class="container-xxl py-5 category">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
-                <h1 class="mb-5">Courses Categories</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Kategori</h6>
+                <h1 class="mb-5">Kategori Kursus</h1>
             </div>
             <div class="row g-3">
                 <div class="col-lg-7 col-md-6">
@@ -222,7 +221,7 @@
                                 <img class="img-fluid" src="assets/img/cat-1.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
-                                    <h5 class="m-0">Web Design</h5>
+                                    <h5 class="m-0">PHP</h5>
                                     <!-- <small class="text-primary">49 Courses</small> -->
                                 </div>
                             </a>
@@ -232,7 +231,7 @@
                                 <img class="img-fluid" src="assets/img/cat-2.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
-                                    <h5 class="m-0">JS Scripting</h5>
+                                    <h5 class="m-0">Java</h5>
                                     <!-- <small class="text-primary">49 Courses</small> -->
                                 </div>
                             </a>
@@ -242,7 +241,7 @@
                                 <img class="img-fluid" src="assets/img/cat-3.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
-                                    <h5 class="m-0">Introduction to C++</h5>
+                                    <h5 class="m-0">Python</h5>
                                     <!-- <small class="text-primary">49 Courses</small> -->
                                 </div>
                             </a>
@@ -255,7 +254,7 @@
                             style="object-fit: cover;">
                         <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                             style="margin:  1px;">
-                            <h5 class="m-0">Python Programming</h5>
+                            <h5 class="m-0">HTML</h5>
                             <!-- <small class="text-primary">49 Courses</small> -->
                         </div>
                     </a>
@@ -477,8 +476,8 @@
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="text-center">
-                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
-                <h1 class="mb-5">Our Students Say!</h1>
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimoni</h6>
+                <h1 class="mb-5">Kesan Siswa Kami!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel position-relative">
                 <div class="testimonial-item text-center">
@@ -530,18 +529,18 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
+                    <h4 class="text-white mb-3">Tautan Langsung</h4>
+                    <a class="btn btn-link" href="">Tentang Kami</a>
+                    <a class="btn btn-link" href="">Hubungi Kami</a>
+                    <a class="btn btn-link" href="">Kebijakan Privasi</a>
+                    <a class="btn btn-link" href="">Syarat & Ketentuan</a>
+                    <a class="btn btn-link" href="">Pertanyaan dan Bantuan</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
+                    <h4 class="text-white mb-3">Kontak</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Malang</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 812 8897 2857</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>timkami@student.ub.ac.id</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 812 3456 7890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>studysmart@student.ub.ac.id</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -550,7 +549,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
+                    <h4 class="text-white mb-3">Galeri</h4>
                     <div class="row g-2 pt-2">
                         <div class="col-4">
                             <img class="img-fluid bg-light p-1" src="assets/img/course-1.jpg" alt="">
@@ -573,12 +572,12 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <h4 class="text-white mb-3">Berita</h4>
                     <p>Dapatkan kabar terbaru terkait course, materi, serta latihan dari kami!</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Daftar</button>
                     </div>
                 </div>
             </div>
@@ -588,10 +587,10 @@
                 <div class="row">
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
+                            <a href="">Beranda</a>
                             <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan</a>
                         </div>
                     </div>
                 </div>

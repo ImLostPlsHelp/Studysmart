@@ -79,7 +79,7 @@
     <h5 class="mb-4" style="text-align: center;">{{ $course->description }}</h5>
     
     <div class="d-flex justify-content-center pt-0 py-4">
-        <a href="{{ route('lessons.show', $course->id) }}" class="flex-shrink-0 btn btn-md btn-primary px-4" style="border-radius: 30px; align-items: center; text-align: center;">Go to Quiz</a>
+        <a href="{{ route('lessons.show', $course->id) }}" class="flex-shrink-0 btn btn-md btn-primary px-4" style="border-radius: 30px; align-items: center; text-align: center;">Buka Quiz</a>
     </div>
 
 
@@ -88,18 +88,18 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
+                    <h4 class="text-white mb-3">Tautan Langsung</h4>
+                    <a class="btn btn-link" href="">Tentang Kami</a>
+                    <a class="btn btn-link" href="">Hubungi Kami</a>
+                    <a class="btn btn-link" href="">Kebijakan Privasi</a>
+                    <a class="btn btn-link" href="">Syarat & Ketentuan</a>
+                    <a class="btn btn-link" href="">Pertanyaan dan Bantuan</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
+                    <h4 class="text-white mb-3">Kontak</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Malang</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 812 8897 2857</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>timkami@student.ub.ac.id</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 812 3456 7890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>studysmart@student.ub.ac.id</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -108,35 +108,35 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
+                    <h4 class="text-white mb-3">Galeri</h4>
                     <div class="row g-2 pt-2">
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{ asset('assets/img/course-1.jpg') }}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{{  asset('assets/img/course-1.jpg')  }}" alt="">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{ asset('assets/img/course-2.jpg') }}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{{  asset('assets/img/course-2.jpg')  }}" alt="">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{ asset('assets/img/course-3.jpg') }}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{{  asset('assets/img/course-3.jpg')  }}" alt="">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{ asset('assets/img/course-2.jpg') }}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{{  asset('assets/img/course-2.jpg')  }}" alt="">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{ asset('assets/img/course-3.jpg') }}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{{  asset('assets/img/course-3.jpg')  }}" alt="">
                         </div>
                         <div class="col-4">
-                            <img class="img-fluid bg-light p-1" src="{{ asset('assets/img/course-1.jpg') }}" alt="">
+                            <img class="img-fluid bg-light p-1" src="{{  asset('assets/img/course-1.jpg')  }}" alt="">
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <h4 class="text-white mb-3">Berita</h4>
                     <p>Dapatkan kabar terbaru terkait course, materi, serta latihan dari kami!</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Daftar</button>
                     </div>
                 </div>
             </div>
@@ -144,22 +144,18 @@
         <div class="container">
             <div class="copyright">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Studysmart</a>, All Right Reserved.
-                    </div>
                     <div class="col-md-6 text-center text-md-end">
-    <!-- Footer navigation -->
-    <!-- <div class="footer-menu">
-                            <a href="">Home</a>
+                        <div class="footer-menu">
+                            <a href="">Beranda</a>
                             <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Footer End -->
 
 

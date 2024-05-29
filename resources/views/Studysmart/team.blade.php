@@ -46,7 +46,7 @@
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-        <a href="{{ route('home') }}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
             <h2 class="m-0 text-primary"><i class="fa fa-solid fa-graduation-cap me-3"></i></i>Studysmart</h2>
         </a>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -54,26 +54,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ route('home') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ route('about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ route('courses') }}" class="nav-item nav-link">Courses</a>
+                <a href="{{ route('home') }}" class="nav-item nav-link">Beranda</a>
+                <a href="{{ route('about') }}" class="nav-item nav-link">Tentang Kami</a>
+                <a href="{{ route('courses') }}" class="nav-item nav-link">Kursus</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Halaman</a>
                     <div class="dropdown-menu fade-down m-0">
-                        <a href="{{ route('team') }}" class="dropdown-item">Our Team</a>
-                        <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
+                        <a href="{{ route('team') }}" class="dropdown-item">Tim Kami</a>
+                        <a href="{{ route('testimonial') }}" class="dropdown-item">Testimoni</a>
                     </div>
                 </div>
-                <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
+                <a href="{{ route('contact') }}" class="nav-item nav-link">Kontak</a>
+                @if(Auth::check())
+                    <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profil<i
+                            class="fa fa-regular fa-user ms-2"></i></a>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Gabung Sekarang<i
+                            class="fa fa-arrow-right ms-3"></i></a>
+                @endif
             </div>
-            @if(Auth::check())
-                <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profile<i
-                        class="fa fa-regular fa-user ms-2"></i></a>
-            @else
-                <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
-                        class="fa fa-arrow-right ms-3"></i></a>
-            @endif
         </div>
     </nav>
     <!-- Navbar End -->
@@ -84,12 +83,12 @@
         <div class="container py-5">
             <div class="row justify-content-center">
                 <div class="col-lg-10 text-center">
-                    <h1 class="display-3 text-white animated slideInDown">Our Team</h1>
+                    <h1 class="display-3 text-white animated slideInDown">Tim Kami</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Team</li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Beranda</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Halaman</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Tim</li>
                         </ol>
                     </nav>
                 </div>
@@ -123,7 +122,7 @@
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Maurits</h5>
-                            <small>Pengajar</small>
+                            <small>Pengembang</small>
                         </div>
                     </div>
                 </div>
@@ -143,7 +142,7 @@
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Wayan</h5>
-                            <small>Pengajar</small>
+                            <small>Pengembang</small>
                         </div>
                     </div>
                 </div>
@@ -163,7 +162,7 @@
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Ernu</h5>
-                            <small>Pengajar</small>
+                            <small>Pengembang</small>
                         </div>
                     </div>
                 </div>
@@ -183,7 +182,7 @@
                         </div>
                         <div class="text-center p-4">
                             <h5 class="mb-0">Dzakwan</h5>
-                            <small>Pengajar</small>
+                            <small>Pengembang</small>
                         </div>
                     </div>
                 </div>
@@ -270,18 +269,18 @@
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Quick Link</h4>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">FAQs & Help</a>
+                    <h4 class="text-white mb-3">Tautan Langsung</h4>
+                    <a class="btn btn-link" href="">Tentang Kami</a>
+                    <a class="btn btn-link" href="">Hubungi Kami</a>
+                    <a class="btn btn-link" href="">Kebijakan Privasi</a>
+                    <a class="btn btn-link" href="">Syarat & Ketentuan</a>
+                    <a class="btn btn-link" href="">Pertanyaan dan Bantuan</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Contact</h4>
+                    <h4 class="text-white mb-3">Kontak</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Malang</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 812 8897 2857</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>timkami@student.ub.ac.id</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+62 812 3456 7890</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>studysmart@student.ub.ac.id</p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
@@ -290,7 +289,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Gallery</h4>
+                    <h4 class="text-white mb-3">Galeri</h4>
                     <div class="row g-2 pt-2">
                         <div class="col-4">
                             <img class="img-fluid bg-light p-1" src="assets/img/course-1.jpg" alt="">
@@ -313,12 +312,12 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <h4 class="text-white mb-3">Berita</h4>
                     <p>Dapatkan kabar terbaru terkait course, materi, serta latihan dari kami!</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button"
-                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Daftar</button>
                     </div>
                 </div>
             </div>
@@ -328,10 +327,10 @@
                 <div class="row">
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
-                            <a href="">Home</a>
+                            <a href="">Beranda</a>
                             <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="">Bantuan</a>
+                            <a href="">Pertanyaan</a>
                         </div>
                     </div>
                 </div>
