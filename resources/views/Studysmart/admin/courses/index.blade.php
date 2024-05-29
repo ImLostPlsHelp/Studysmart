@@ -12,42 +12,45 @@
                     <a href="#" id="add-course-btn" class="mb-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-600 transition ease-in-out duration-150" style="background-color: #06BBCC;">
                         {{ __('Tambah Kursus') }}
                     </a>
-                    <table class="min-w-full divide-y divide-gray-200">
-                        <thead>
-                            <tr>
-                                <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    ID</th>
-                                <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Nama</th>
-                                <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Deskripsi</th>
-                                <th scope="col" class="px-6 py-3 bg-gray-50"></th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-gray-200" id="courses-list">
-                            @foreach ($courses as $course)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    {{ $course->id }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                    {{ $course->name }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $course->description }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="{{ route('admin.courses.show', $course->id) }}" class="text-green-600 hover:text-green-900 pr-3">Lihat Pelajaran</a>
-                                    <button type="button" data-course-id="{{ $course->id }}" data-course-name="{{ $course->name }}" data-course-description="{{ $course->description }}" class="text-indigo-600 hover:text-indigo-900 edit-course">{{ __('Edit') }}</button>
-                                    <form action="{{ route('admin.courses.destroy', $course->id) }}" method="POST" class="inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-900 ml-2">{{ __('Hapus') }}</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                    <div class="table-container">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        ID</th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Nama</th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Deskripsi</th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200" id="courses-list">
+                                @foreach ($courses as $course)
+                                <tr>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        {{ $course->id }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                        {{ $course->name }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
+                                        {{ $course->description }}
+                                    </td>
+                                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                        <a href="{{ route('admin.courses.show', $course->id) }}" class="text-green-600 hover:text-green-900 pr-3">Lihat Pelajaran</a>
+                                        <button type="button" data-course-id="{{ $course->id }}" data-course-name="{{ $course->name }}" data-course-description="{{ $course->description }}" class="text-indigo-600 hover:text-indigo-900 edit-course">{{ __('Edit') }}</button>
+                                        <form action="{{ route('admin.courses.destroy', $course->id) }}" method="POST" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-900 ml-2">{{ __('Hapus') }}</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                     <!-- Add Course Modal -->
                     <div id="add-course-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
                         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
@@ -142,47 +145,31 @@
                     </div>
 
                     <script>
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const addCourseBtn = document.getElementById('add-course-btn');
-                            const editButtons = document.querySelectorAll('.edit-course');
-                            const addModal = document.getElementById('add-course-modal');
-                            const editModal = document.getElementById('edit-course-modal');
-                            const cancelAddBtn = document.getElementById('cancel-add-btn');
-                            const cancelEditBtn = document.getElementById('cancel-edit-btn');
-                            const addForm = document.getElementById('add-course-form');
-                            const editForm = document.getElementById('edit-course-form');
-                            const addCourseIdInput = document.getElementById('add-course-id');
-                            const editCourseIdInput = document.getElementById('edit-course-id');
-                            const nameInput = document.getElementById('edit-name');
-                            const descriptionInput = document.getElementById('edit-description');
+                        document.getElementById('add-course-btn').addEventListener('click', function() {
+                            document.getElementById('add-course-modal').classList.remove('hidden');
+                        });
 
-                            addCourseBtn.addEventListener('click', function() {
-                                addForm.reset();
-                                addModal.classList.remove('hidden');
+                        document.getElementById('cancel-add-btn').addEventListener('click', function() {
+                            document.getElementById('add-course-modal').classList.add('hidden');
+                        });
+
+                        document.querySelectorAll('.edit-course').forEach(button => {
+                            button.addEventListener('click', function() {
+                                const courseId = this.getAttribute('data-course-id');
+                                const courseName = this.getAttribute('data-course-name');
+                                const courseDescription = this.getAttribute('data-course-description');
+
+                                document.getElementById('edit-course-id').value = courseId;
+                                document.getElementById('edit-name').value = courseName;
+                                document.getElementById('edit-description').value = courseDescription;
+                                document.getElementById('edit-course-form').action = '/admin/courses/' + courseId;
+
+                                document.getElementById('edit-course-modal').classList.remove('hidden');
                             });
+                        });
 
-                            editButtons.forEach(button => {
-                                button.addEventListener('click', function() {
-                                    const courseId = this.getAttribute('data-course-id');
-                                    const courseName = this.getAttribute('data-course-name');
-                                    const courseDescription = this.getAttribute('data-course-description');
-
-                                    editCourseIdInput.value = courseId;
-                                    nameInput.value = courseName;
-                                    descriptionInput.value = courseDescription;
-
-                                    editForm.action = `/admin/courses/${courseId}`;
-                                    editModal.classList.remove('hidden');
-                                });
-                            });
-
-                            cancelAddBtn.addEventListener('click', function() {
-                                addModal.classList.add('hidden');
-                            });
-
-                            cancelEditBtn.addEventListener('click', function() {
-                                editModal.classList.add('hidden');
-                            });
+                        document.getElementById('cancel-edit-btn').addEventListener('click', function() {
+                            document.getElementById('edit-course-modal').classList.add('hidden');
                         });
                     </script>
                 </div>
