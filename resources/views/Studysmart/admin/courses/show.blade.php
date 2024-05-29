@@ -1,24 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Studysmart - Show Lessons</title>
+    <style>
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            table-layout: fixed;
+        }
+        th, td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 40%; /* Adjust as needed */
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 30%; /* Adjust as needed */
+        }
+        th:nth-child(4), td:nth-child(4) {
+            width: 20%; /* Adjust as needed */
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- resources/views/admin/courses/show.blade.php -->
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Lessons for ') . $course->name }}
             </h2>
-            <a href="#" id="add-lesson-btn"
-                class="ml-4 inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-600 transition ease-in-out duration-150">
-                {{ __('Add Lesson') }}
-            </a>
+            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-red-900 ml-2">Back to Courses</a>
         </x-slot>
 
         <div class="py-12">
@@ -28,52 +44,54 @@
                         <form action="{{ route('courses.lessons.create', ['course' => $course->id]) }}">
                             <button type="submit" class="text-green-600 hover:text-red-900 ml-2">Add Lessons</button>
                         </form>
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead>
-                                <tr>
-                                    <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        ID</th>
-                                    <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Questions</th>
-                                    <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Answers</th>
-                                    <th scope="col"
-                                        class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200" id="lessons-list">
-                                @foreach ($lessons as $lesson)
+                        <div class="table-container">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
                                     <tr>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                            {{ $lesson->id }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                            {{ $lesson->questions }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $lesson->answers }}
-                                        </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <button type="button" data-lesson-id="{{ $lesson->id }}"
-                                                data-lesson-questions="{{ $lesson->questions }}"
-                                                data-lesson-answers="{{ $lesson->answers }}"
-                                                class="text-indigo-600 hover:text-indigo-900 edit-lesson">{{ __('Edit') }}</button>
-                                            <form
-                                                action="{{ route('courses.lessons.destroy', ['course' => $course->id, 'lesson' => $lesson->id]) }}"
-                                                method="POST" class="inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit"
-                                                    class="text-red-600 hover:text-red-900 ml-2">{{ __('Delete') }}</button>
-                                            </form>
-                                        </td>
+                                        <th scope="col"
+                                            class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            ID</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Questions</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Answers</th>
+                                        <th scope="col"
+                                            class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Actions</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200" id="lessons-list">
+                                    @foreach ($lessons as $lesson)
+                                        <tr>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                                                {{ $lesson->id }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                {{ $lesson->questions }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $lesson->answers }}
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                <button type="button" data-lesson-id="{{ $lesson->id }}"
+                                                    data-lesson-questions="{{ $lesson->questions }}"
+                                                    data-lesson-answers="{{ $lesson->answers }}"
+                                                    class="text-indigo-600 hover:text-indigo-900 edit-lesson">{{ __('Edit') }}</button>
+                                                <form
+                                                    action="{{ route('courses.lessons.destroy', ['course' => $course->id, 'lesson' => $lesson->id]) }}"
+                                                    method="POST" class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                        class="text-red-600 hover:text-red-900 ml-2">{{ __('Delete') }}</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                         <!-- Modal -->
                         <div id="lesson-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
                             <div
@@ -133,16 +151,12 @@
         </div>
     </x-app-layout>
 
-    <!-- Tambahkan JavaScript untuk menangani event edit dan modal -->
+    <!-- JavaScript to handle edit event and modal -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const editButtons = document.querySelectorAll('.edit-lesson');
             const modal = document.getElementById('lesson-modal');
+            const editButtons = document.querySelectorAll('.edit-lesson');
             const cancelBtn = document.getElementById('cancel-btn');
-            const form = document.getElementById('lesson-form');
-            const lessonIdInput = document.getElementById('lesson-id');
-            const questionsInput = document.getElementById('questions');
-            const answersInput = document.getElementById('answers');
 
             editButtons.forEach(button => {
                 button.addEventListener('click', function () {
@@ -150,11 +164,12 @@
                     const lessonQuestions = this.getAttribute('data-lesson-questions');
                     const lessonAnswers = this.getAttribute('data-lesson-answers');
 
-                    lessonIdInput.value = lessonId;
-                    questionsInput.value = lessonQuestions;
-                    answersInput.value = lessonAnswers;
+                    document.getElementById('lesson-id').value = lessonId;
+                    document.getElementById('questions').value = lessonQuestions;
+                    document.getElementById('answers').value = lessonAnswers;
 
-                    form.action = `/courses/${{{ $course->id }}}/lessons/${lessonId}`;
+                    document.getElementById('lesson-form').action = `/courses/{{ $course->id }}/lessons/${lessonId}`;
+
                     modal.classList.remove('hidden');
                 });
             });
@@ -165,5 +180,4 @@
         });
     </script>
 </body>
-
 </html>
