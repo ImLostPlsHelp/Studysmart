@@ -90,9 +90,9 @@
                     <div class="container">
                         <div class="row justify-content-start">
                             <div class="col-sm-10 col-lg-8">
-                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Best Online Courses
+                                <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Kursus Online Terbaik
                                 </h5>
-                                <h1 class="display-3 text-white animated slideInDown">The Best Online Learning Platform
+                                <h1 class="display-3 text-white animated slideInDown">Platform Belajar Online Terbaik
                                 </h1>
                                 <p class="fs-5 text-white mb-4 pb-2">Studysmart menyediakan materi serta dokumentasi
                                     terhadap banyak bidang dan bahasa programming yang mudah diakses dan dimengerti.</p>
