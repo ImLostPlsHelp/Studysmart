@@ -34,7 +34,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 {{ __('Lessons for ') . $course->name }}
             </h2>
-            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-red-900 ml-2">Back to Courses</a>
+            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500 ml-2">Back to Courses</a>
         </x-slot>
 
         <div class="py-12">
@@ -42,7 +42,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <form action="{{ route('courses.lessons.create', ['course' => $course->id]) }}">
-                            <button type="submit" class="text-green-600 hover:text-red-900 ml-2">Add Lessons</button>
+                            <button type="submit" class="text-green-600 hover:text-blue-500 ml-2">Add Lessons</button>
                         </form>
                         <div class="table-container">
                             <table class="min-w-full divide-y divide-gray-200">
