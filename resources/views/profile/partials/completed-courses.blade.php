@@ -1,7 +1,7 @@
 <!-- resources/views/profile/partials/completed-courses.blade.php -->
 <div class="completed-courses">
 <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Completed Course') }}
+            {{ __('Kursus Yang Telah Selesai') }}
         </h2>
     <ul class="course-list">
         @foreach($completedCourses as $course)

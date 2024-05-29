@@ -46,10 +46,9 @@
     <x-app-layout>
         <x-slot name="header">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Lessons for ') . $course->name }}
+                {{ __('Pelajaran untuk Kursus ') . $course->name }}
             </h2>
-            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500 ml-2">Back to
-                Courses</a>
+            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500 ml-2" style="color: #06BBCC;">Kembali ke Kursus</a>
         </x-slot>
 
         <div class="py-12">
@@ -57,7 +56,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <form action="{{ route('courses.lessons.create', ['course' => $course->id]) }}">
-                            <button type="submit" class="text-green-600 hover:text-blue-500 ml-2">Add Lessons</button>
+                            <button type="submit" class="text-green-600 hover:text-blue-500 ml-2" style="color: #06BBCC;">Tambah Pelajaran</button>
                         </form>
                         <div class="table-container">
                             <table class="min-w-full divide-y divide-gray-200">
@@ -68,13 +67,13 @@
                                             ID</th>
                                         <th scope="col"
                                             class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Questions</th>
+                                            Pertanyaan</th>
                                         <th scope="col"
                                             class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Answers</th>
+                                            Jawaban</th>
                                         <th scope="col"
                                             class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Actions</th>
+                                            Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-200" id="lessons-list">
@@ -100,7 +99,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit"
-                                                        class="text-red-600 hover:text-red-900 ml-2">{{ __('Delete') }}</button>
+                                                        class="text-red-600 hover:text-red-900 ml-2">{{ __('Hapus') }}</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -127,19 +126,19 @@
                                                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                                     <h3 class="text-lg leading-6 font-medium text-gray-900"
                                                         id="modal-title">
-                                                        Add/Edit Lesson
+                                                        Edit Pertanyaan
                                                     </h3>
                                                     <div class="mt-2">
                                                         <input type="hidden" id="lesson-id" name="lesson-id">
                                                         <div>
                                                             <label for="questions"
-                                                                class="block text-sm font-medium text-gray-700">Questions</label>
+                                                                class="block text-sm font-medium text-gray-700">Pertanyaan</label>
                                                             <input type="text" id="questions" name="questions"
                                                                 class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                         </div>
                                                         <div class="mt-4">
                                                             <label for="answers"
-                                                                class="block text-sm font-medium text-gray-700">Answers</label>
+                                                                class="block text-sm font-medium text-gray-700">Jawaban</label>
                                                             <input type="text" id="answers" name="answers"
                                                                 class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                                         </div>
@@ -149,12 +148,12 @@
                                         </div>
                                         <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                             <button type="submit"
-                                                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm">
-                                                Save
+                                                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm" style="background-color: #06BBCC;">
+                                                Simpan
                                             </button>
                                             <button type="button" id="cancel-btn"
                                                 class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
-                                                Cancel
+                                                Batal
                                             </button>
                                         </div>
                                     </form>

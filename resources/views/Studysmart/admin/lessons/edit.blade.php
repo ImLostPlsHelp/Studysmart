@@ -3,7 +3,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit Lesson for ') . $course->name }}
+            {{ __('Edit Pertanyaan untuk Kursus ') . $course->name }}
         </h2>
     </x-slot>
 
@@ -15,16 +15,16 @@
                         @csrf
                         @method('PUT')
                         <div>
-                            <x-label for="questions" :value="__('Questions')" />
+                            <x-label for="questions" :value="__('Pertanyaan')" />
                             <x-input id="questions" class="block mt-1 w-full" type="text" name="questions" value="{{ $lesson->questions }}" required autofocus />
                         </div>
                         <div class="mt-4">
-                            <x-label for="answers" :value="__('Answers')" />
+                            <x-label for="answers" :value="__('Jawaban')" />
                             <x-input id="answers" class="block mt-1 w-full" type="text" name="answers" value="{{ $lesson->answers }}" required />
                         </div>
                         <div class="mt-4">
                             <x-button>
-                                {{ __('Update Lesson') }}
+                                {{ __('Perbarui Pertanyaan') }}
                             </x-button>
                         </div>
                     </form>

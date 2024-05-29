@@ -3,7 +3,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Add Lesson for ') . $course->name }}
+            {{ __('Tambah Pertanyaan untuk Kursus ') . $course->name }}
         </h2>
     </x-slot>
 
@@ -15,20 +15,20 @@
                         @csrf
                         <div>
                             <label for="questions" class="block font-medium text-sm text-gray-700">
-                                {{ __('Questions') }}
+                                {{ __('Pertanyaan') }}
                             </label>
                             <input id="questions" class="block mt-1 w-full" type="text" name="questions" required autofocus />
                         </div>
                         <div class="mt-4">
                             <label for="answers" class="block font-medium text-sm text-gray-700">
-                                {{ __('Answers') }}
+                                {{ __('Jawaban') }}
                             </label>
                             <input id="answers" class="block mt-1 w-full" type="text" name="answers" required />
                         </div>
                         <div class="mt-4">
                             <input type="hidden" name="course_id" value="{{ $course->id }}" />
-                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-600 transition ease-in-out duration-150">
-                                {{ __('Add Lesson') }}
+                            <button type="submit" class="inline-flex items-center px-4 py-2 bg-green-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-600 transition ease-in-out duration-150" style="background-color: #06BBCC;">
+                                {{ __('Tambah Pertanyaan') }}
                             </button>
                         </div>
                     </form>
