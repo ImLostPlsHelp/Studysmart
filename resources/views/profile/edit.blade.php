@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <a href="{{ route('home') }}" class="font-semibold text-xl text-gray-800 leading-tight pl-4" onmouseover="this.style.color='#06BBCC'" onmouseout="this.style.color=''">Home</a>
+        <a href="{{ route('home') }}" class="font-normal text-lg text-gray-800 leading-tight ml-4 pl-4" onmouseover="this.style.color='#06BBCC'" onmouseout="this.style.color=''">Kembali ke Beranda</a>
         <!-- <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
         </h2> -->

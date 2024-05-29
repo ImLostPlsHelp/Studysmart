@@ -13,16 +13,16 @@
                     <form action="{{ route('admin.courses.store') }}" method="POST">
                         @csrf
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
                             <input type="text" id="name" name="name" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="mt-4">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <label for="description" class="block text-sm font-medium text-gray-700">Deskripsi</label>
                             <input type="text" id="description" name="description" class="mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         </div>
                         <div class="mt-4">
-                            <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                                Save
+                            <button type="submit" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" style="background-color: #06BBCC;">
+                                Simpan
                             </button>
                         </div>
                     </form>

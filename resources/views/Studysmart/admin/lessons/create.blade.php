@@ -17,13 +17,13 @@
                             <label for="questions" class="block font-medium text-sm text-gray-700">
                                 {{ __('Pertanyaan') }}
                             </label>
-                            <input id="questions" class="block mt-1 w-full" type="text" name="questions" required autofocus />
+                            <input id="questions" class="block mt-1 w-full" type="text" name="questions" style="border-radius: 10px;" autofocus />
                         </div>
                         <div class="mt-4">
                             <label for="answers" class="block font-medium text-sm text-gray-700">
                                 {{ __('Jawaban') }}
                             </label>
-                            <input id="answers" class="block mt-1 w-full" type="text" name="answers" required />
+                            <input id="answers" class="block mt-1 w-full" type="text" name="answers" style="border-radius: 10px;" required />
                         </div>
                         <div class="mt-4">
                             <input type="hidden" name="course_id" value="{{ $course->id }}" />

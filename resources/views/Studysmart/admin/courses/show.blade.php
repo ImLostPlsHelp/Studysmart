@@ -45,10 +45,10 @@
 <body>
     <x-app-layout>
         <x-slot name="header">
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight mb-2">
                 {{ __('Pelajaran untuk Kursus ') . $course->name }}
             </h2>
-            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500 ml-2" style="color: #06BBCC;">Kembali ke Kursus</a>
+            <a href="{{ route('admin.courses.index') }}" class="text-green-600 hover:text-blue-500" style="color: #06BBCC;">Kembali ke Kursus</a>
         </x-slot>
 
         <div class="py-12">
@@ -56,7 +56,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <form action="{{ route('courses.lessons.create', ['course' => $course->id]) }}">
-                            <button type="submit" class="text-green-600 hover:text-blue-500 ml-2" style="color: #06BBCC;">Tambah Pelajaran</button>
+                            <button type="submit" class="mb-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-500 focus:outline-none focus:border-green-700 focus:shadow-outline-green active:bg-green-600 transition ease-in-out duration-150" style="background-color: #06BBCC;">Tambah Pelajaran</button>
                         </form>
                         <div class="table-container">
                             <table class="min-w-full divide-y divide-gray-200">
