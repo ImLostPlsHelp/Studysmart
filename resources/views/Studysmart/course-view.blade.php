@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Studysmart - about</title>
+    <title>Studysmart - course</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -33,14 +33,12 @@
 
 <body>
     <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
         </div>
     </div>
     <!-- Spinner End -->
-
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white shadow navbar-light sticky-top p-0 mb-3">
@@ -66,23 +64,27 @@
                 <a href="{{ route('contact') }}" class="nav-item nav-link">Contact</a>
             </div>
             @if(Auth::check())
-                <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profile<i
-                        class="fa fa-regular fa-user ms-2"></i></a>
+            <a href="{{ route('profile.show') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Profile<i class="fa fa-regular fa-user ms-2"></i></a>
             @else
-                <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i
-                        class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{ route('login') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
             @endif
         </div>
     </nav>
     <!-- Navbar End -->
-    <h3 class="mb-4">{{ $course->name }}</h3>
-    <h5 class="mb-4">{{ $course->description }}</h5>
 
-    <a href="{{ route('lessons.show', $course->id) }}" class="flex-shrink-0 btn btn-sm btn-primary px-3"
-                                        style="border-radius: 30px;">Go to Quiz</a>
+    <div class="text-center wow fadeInUp py-4" data-wow-delay="0.1s">
+        <h6 class="section-title bg-white text-center text-primary px-3">{{ $course->name }}</h6>
+    </div>
+
+    <h5 class="mb-4" style="text-align: center;">{{ $course->description }}</h5>
+    
+    <div class="d-flex justify-content-center pt-0 py-4">
+        <a href="{{ route('lessons.show', $course->id) }}" class="flex-shrink-0 btn btn-md btn-primary px-4" style="border-radius: 30px; align-items: center; text-align: center;">Go to Quiz</a>
+    </div>
+
 
     <!-- Footer Start -->
-    <!-- <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -145,9 +147,9 @@
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">Studysmart</a>, All Right Reserved.
                     </div>
-                    <div class="col-md-6 text-center text-md-end"> -->
-                        <!-- Footer navigation -->
-                        <!-- <div class="footer-menu">
+                    <div class="col-md-6 text-center text-md-end">
+    <!-- Footer navigation -->
+    <!-- <div class="footer-menu">
                             <a href="">Home</a>
                             <a href="">Cookies</a>
                             <a href="">Help</a>

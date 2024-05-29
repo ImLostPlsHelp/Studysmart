@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Index</title>
+    <title>Studysmart - Home</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -141,8 +141,8 @@
                     <div class="service-item text-center pt-3">
                         <div class="p-4">
                             <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
-                            <h5 class="mb-3">Pengajar yang Terampil</h5>
-                            <p>Belajar bersama pengajar - pengajar yang cekatan dan berketerampilan</p>
+                            <h5 class="mb-3">Semua Kalangan</h5>
+                            <p>Mudah belajar bahasa programming untuk semua kalangan</p>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         <div class="p-4">
                             <i class="fa fa-3x fa-globe text-primary mb-4"></i>
                             <h5 class="mb-3">Kelas Daring</h5>
-                            <p>Belajarlah sesuai kenyamanan Anda sendiri</p>
+                            <p>Belajarlah sesuai kenyamanan Anda sendiri dimanapun dan kapanpun</p>
                         </div>
                     </div>
                 </div>
@@ -195,32 +195,10 @@
                     <h1 class="mb-4">Welcome to Studysmart</h1>
                     <p class="mb-4">“Pendidikan adalah senjata paling ampuh yang dapat Anda gunakan untuk mengubah
                         dunia” - Nelson Mandela.</p>
-                    <p class="mb-4">Halo students! Perkenalkan, kami adalah sekumpulan programmer yang merasa media
+                    <p class="mb-4" style="text-align: justify;">Halo students! Perkenalkan, kami adalah sekumpulan programmer yang merasa media
                         pembelajaran programming yang menggunakan Bahasa Indonesia kurang, oleh karena itu kami membuat
-                        Studysmart. Semoga dengan Studysmart, calon - calon programmer dapat terbantu dalam perjalanan
-                        mereka serta menghindarkan mereka dari error - error yang merajalela. Good luck students!</p>
-                    <div class="row gy-2 gx-4 mb-4">
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate
-                            </p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Online Classes</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>International Certificate
-                            </p>
-                        </div>
-                    </div>
+                        Studysmart. Semoga dengan Studysmart, calon-calon programmer dapat terbantu dalam perjalanan
+                        mereka serta menghindarkan mereka dari error-error yang merajalela. Good luck students!</p>
                     <a class="btn btn-primary py-3 px-5 mt-2" href="{{ route('about') }}">Read More</a>
                 </div>
             </div>
@@ -240,45 +218,45 @@
                 <div class="col-lg-7 col-md-6">
                     <div class="row g-3">
                         <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="{{ route('courses') }}">
                                 <img class="img-fluid" src="assets/img/cat-1.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
                                     <h5 class="m-0">Web Design</h5>
-                                    <small class="text-primary">49 Courses</small>
+                                    <!-- <small class="text-primary">49 Courses</small> -->
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="{{ route('courses') }}">
                                 <img class="img-fluid" src="assets/img/cat-2.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
                                     <h5 class="m-0">JS Scripting</h5>
-                                    <small class="text-primary">49 Courses</small>
+                                    <!-- <small class="text-primary">49 Courses</small> -->
                                 </div>
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
-                            <a class="position-relative d-block overflow-hidden" href="">
+                            <a class="position-relative d-block overflow-hidden" href="{{ route('courses') }}">
                                 <img class="img-fluid" src="assets/img/cat-3.jpg" alt="">
                                 <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                                     style="margin: 1px;">
                                     <h5 class="m-0">Introduction to C++</h5>
-                                    <small class="text-primary">49 Courses</small>
+                                    <!-- <small class="text-primary">49 Courses</small> -->
                                 </div>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
-                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="{{ route('courses') }}">
                         <img class="img-fluid position-absolute w-100 h-100" src="assets/img/cat-4.jpg" alt=""
                             style="object-fit: cover;">
                         <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3"
                             style="margin:  1px;">
                             <h5 class="m-0">Python Programming</h5>
-                            <small class="text-primary">49 Courses</small>
+                            <!-- <small class="text-primary">49 Courses</small> -->
                         </div>
                     </a>
                 </div>
@@ -289,7 +267,7 @@
 
 
     <!-- Courses Start -->
-    <div class="container-xxl py-5">
+    <!-- <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
@@ -397,12 +375,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Courses End -->
 
 
     <!-- Team Start -->
-    <div class="container-xxl py-5">
+    <!-- <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Instructors</h6>
@@ -491,7 +469,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Team End -->
 
 
