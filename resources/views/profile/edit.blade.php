@@ -1,8 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <a href="{{ route('home') }}" class="font-semibold text-xl text-gray-800 leading-tight pl-4" onmouseover="this.style.color='#06BBCC'" onmouseout="this.style.color=''">Home</a>
+        <!-- <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Profile') }}
-        </h2>
+        </h2> -->
     </x-slot>
 
     <div class="py-12">
@@ -18,7 +19,7 @@
                     @include('profile.partials.completed-courses')
                 </div>
             </div>
-            
+
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('profile.partials.update-password-form')
