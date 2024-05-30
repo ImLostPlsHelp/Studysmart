@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\Admin;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -16,12 +18,24 @@ class CourseController extends Controller
 
     public function indexAdmin()
     {
+        $user = Auth::user();
+
+        // Cek apakah pengguna adalah admin
+        if (!Admin::where('email', $user->email)->exists()) {
+            abort(403, 'Unauthorized action.');
+        }
         $courses = Course::all();
         return view('Studysmart.admin.courses.index', compact('courses'));
     }
 
     public function show(Course $course)
     {
+        $user = Auth::user();
+
+        // Cek apakah pengguna adalah admin
+        if (!Admin::where('email', $user->email)->exists()) {
+            abort(403, 'Unauthorized action.');
+        }
         $lessons = $course->lessons;
         return view('Studysmart.admin.courses.show', compact('course', 'lessons'));
     }
